@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap');
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    position: relative;
+    perspective: 1100px;
+    overflow: hidden;
+    font-family: 'roboto', cursive;
+}
+
+nav {
+    width: 100%;
+    height: 60px;
+    padding: 20px 10vw;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+nav .brand{
+    font-size: 25px;
+    font-weight: 900;
+    color: #fff;
+}
+
+nav .link{
+    position: absolute;
+    width: 25vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: -25vw;
+}
+
+nav .link ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    list-style-type: none;
+}
+
+nav .link ul li{
+    padding: 20px;
+    text-transform: capitalize;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.5s;
+    font-size: 20px;
+}
+
+nav .toggle-btn{
+    width: 60px;
+    height: 60px;
+    position: relative;
+    display: block;
+    margin-left: auto;
+}
+
+nav .toggle-btn span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 2px;
+    background-color: #fff;
+    transition: .5s;
+}
+
+nav .toggle-btn span:nth-child(1){
+    top: 30%;
+}
+
+nav .toggle-btn span:nth-child(3){
+    top: 70%;
+}
+
+.main-body{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(170, 48, 48);
+    transition: .5s;
+}
+
+.page-one,
+.page-two,
+.page-three{
+    width: 100%;
+    height: 100vh;
+    transition: .5s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-one{
+    z-index: 3;
+}
+
+.page-two{
+    z-index: 2;
+}
+
+.page-three{
+    z-index: 1;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.content{
+    position: relative;
+}
+
+.content .heading{
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 80px;
+    text-align: center;
+}
+
+.content p{
+    color: #fff;
+    width: 50%;
+    font-size: 18px;
+    text-align: center;
+    display: block;
+    margin: auto;
+}
+
+.content .btn{
+    padding: 10px 40px;
+    border-radius: 20px;
+    border: 2px solid #fff;
+    background-color: transparent;
+    font-size: 16px;
+    display: block;
+    margin: 40px auto 0;
+    cursor: pointer;
+    transition: 0.5s;
+    color: #fff;
+    text-transform: capitalize;
+}
+
+.btn:hover{
+    background-color: #fff;
+    color: #000;
+}
+
+nav .toggle-btn.active span:nth-child(1){
+    top: 80%;
+    left: 40%;
+    transform: rotate(45deg) translate(-50%, -50%);
+}
+
+nav .toggle-btn.active span:nth-child(2){
+    opacity: 0;
+}
+
+nav .toggle-btn.active span:nth-child(3){
+    top: 25%;
+    left: 45%;
+    transform: rotate(-45deg) translate(-50%, -50%);
+}
+
+.page-one.skew{
+    transform: rotateY(45deg) scale(0.6);
+}
+
+.page-two.skew{
+    left: -5%;
+    transform: rotateY(45deg) scale(0.6);
+}
+
+.page-three.skew{
+    left: -10%;
+    transform: rotateY(45deg) scale(0.6);
+}
+
+/* pages transitions */
+
+
+.down{
+    animation: slide-down 1s forwards 1;
+    transform: rotateY(30deg) translateX(-50%) scale(1);
+}
+
+.front{
+    animation: slide-front 1s forwards 1;
+}
+
+.left{
+    animation: slide-left 1s forwards 1;
+}
+
+@keyframes slide-down{
+    0%{
+        top: 0;
+        left: 0%;
+        opacity: 1;
+        z-index: 9;
+    }
+    99%{
+        top: 100%;
+        opacity: 0;
+    }
+    100%{
+        top: 0;
+        left: -10%;
+        z-index: 7;
+    }
+}
+
+@keyframes slide-front{
+    0%{
+        left: -5%;
+        z-index: 8;
+    }
+    100%{
+        left: 0%;
+        z-index: 9;
+    }
+}
+
+@keyframes slide-left{
+    0%{
+        left: -10%;
+        z-index: 7;
+    }
+    100%{
+        left: -5%;
+        z-index: 8;
+    }
+}
+
+nav .link.active{
+    right: 0;
+}
+
+nav .link ul li:hover{
+    transform: scale(1.3);
+}
